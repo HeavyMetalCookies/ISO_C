@@ -1,0 +1,13 @@
+    //:Function_Calls: READING
+
+    //:Read it back from file:
+    file = fopen( "txt.txt", "r" );   
+
+    //:"getline" is not portable:
+    while (fgets(line, len, file) != NULL){ 
+        printf("[LINE]:%s\n", line);        
+    };;    
+
+    //:Close file after finished:
+    res = fclose( file );                   
+    if( 0 != res ){ printf("[FTC:#2]\n"); };

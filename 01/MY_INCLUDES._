@@ -1,0 +1,3 @@
+
+#include <stdio.h> //:fgets(&line,&len,file)  
+#include <stdio.h> //:printf(...)

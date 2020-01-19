@@ -1,0 +1,17 @@
+    
+    //: Get Function Pointer To ShellExecuteA:
+    //:------------------------------------://
+    //: TYPE: PFN_ShellExecuteA
+    //:  VAR: pfn_ShellExecuteA
+    //:------------------------------------://
+
+    PFN_ShellExecuteA
+    pfn_ShellExecuteA=(
+   (PFN_ShellExecuteA)GetProcAddress( lib, 
+       "ShellExecuteA" 
+    ));;
+    if(NULL==pfn_ShellExecuteA){
+        printf("[ShellExecuteA:NULL]");
+    };;
+    
+    //:------------------------------------://

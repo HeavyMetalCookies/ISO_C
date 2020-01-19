@@ -1,0 +1,8 @@
+    
+    //:Load the DLL file containing ShellExecuteA:
+
+    void* lib = LoadLibraryA( "Shell32.dll" );
+    if(NULL==lib){
+        printf("[UnableToLoadDll:Shell32]\n");
+        exit(666);
+    };;

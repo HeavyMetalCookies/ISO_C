@@ -1,0 +1,21 @@
+
+//| Launch a program from within an executable:              |//
+//| Stack: Windows10 + GitBash + MinGW GCC Compiler          |//
+
+#include "SRC/H._" //:H:Headers/Libraries
+#include "SRC/T._" //:T:Types
+
+int main( void ){ 
+printf("[M.C11:BEG:main]\n");
+	
+	#include "SRC/01._" //: GET:  Shell32.dll
+
+    #include "SRC/02._" //: GET:  ShellExecuteA() pointer
+  
+    #include "SRC/03._" //: SET:  Argument List
+
+    #include "SRC/04._" //:CALL:  ShellExecuteA() pointer
+
+printf("[M.C11:END:main]\n"); 
+} 
+

@@ -1,0 +1,4 @@
+    //: Variables: READING
+        
+    char line[64] = {0} ;                                 //02//      
+     int  len     =  64 ;                                 //02//      

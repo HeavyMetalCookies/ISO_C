@@ -1,0 +1,26 @@
+#include <stdio.h> //:fgets(&line,&len,file)  
+#include <stdio.h> //:printf(...)
+int main( void ){
+	printf("[BEG:main]\n\n");                              
+                                                           
+	FILE*  file   = NULL;                            //01//      
+     int  value   = 33  ;                            //01//      
+     int    res   =  0  ;                            //01//
+                                                     
+    char line[64] = {0} ;                            //02//      
+     int  len     =  64 ;                            //02//      
+                      
+    file = fopen( "txt.txt", "w" );                  //03//     
+    fprintf(file, "[VALUE]:%d\n", value);            //03//                                                              
+    res = fclose( file );                            //03//     
+    if( 0 != res ){ printf("[FTC:#1]\n"); };         //03//                                   
+                                                      
+    file = fopen( "txt.txt", "r" );                  //04//                                                       
+    while (fgets(line, len, file) != NULL){          //04//     
+        printf("[LINE]:%s\n", line);                 //04//     
+    };;                                              //04//                                                   
+    res = fclose( file );                            //04//     
+    if( 0 != res ){ printf("[FTC:#2]\n"); };         //04//
+                                                           
+	printf("[END:main]\n");                                                                          
+}  

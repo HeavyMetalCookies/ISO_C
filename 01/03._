@@ -1,0 +1,9 @@
+    //:Function_Calls: WRITING
+
+    //:printf something to the file:
+    file = fopen( "txt.txt", "w" );            
+    fprintf(file, "[VALUE]:%d\n", value);                                                               
+ 
+    //:Close file when finished:
+    res = fclose( file );                      
+    if( 0 != res ){ printf("[FTC:#1]\n"); };

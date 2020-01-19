@@ -1,0 +1,9 @@
+    //: Variables: WRITING
+	
+    //: What is a a "FILE" type?
+    //: typedef struct _iobuf FILE; 
+    //: wchar.h && stdio.h
+
+	FILE*  file   = NULL;                                 //01//      
+     int  value   = 33  ;                                 //01//      
+     int    res   =  0  ;                                 //01//

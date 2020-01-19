@@ -1,0 +1,17 @@
+//:CTF: Create_Text_File
+
+#include "MY_INCLUDES._"
+
+int main( void ){
+	printf("[BEG:main]\n\n");
+
+    #include "01._" //:     Variables: WRITING
+    #include "02._" //:     Variables: READING
+    #include "03._" //:Function_Calls: WRITING
+    #include "04._" //:Function_Calls: READING
+    
+	printf("[END:main]\n");
+    return( 0 );
+}  
+
+

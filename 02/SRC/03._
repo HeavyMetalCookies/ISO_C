@@ -1,0 +1,10 @@
+    
+    //:Create Argument List:
+    const char* lpParameters=(
+        "ARG01"
+        " "
+        "ARG02"
+        " "
+        "ARG03"
+        "\0" //:Extra null terminator to be safe
+    );;

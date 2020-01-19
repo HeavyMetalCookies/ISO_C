@@ -1,0 +1,102 @@
+
+//:         VIDEO: https://www.youtube.com/watch?v=kSsQtozz4iA
+//:       CHANNEL: CODE_TOLD_FAST
+//: PASTEBIN_NAME: 02/M.C11
+//:  PASTEBIN_URL: https://pastebin.com/tNMvqNYA
+
+//: Summary: Main program that calls sub program.
+    
+#include <windows.h>
+#include <stdio.h> //:for: printf(...)
+    
+typedef    /////////////////////////////////////////////////////
+    int  //:<<<<<<<<<<<<<<<<<<<< Func Pointer Return Type  ://
+    (*PFN_ShellExecuteA)( //:<<<<< Func Pointer Name <<<<<<< ://
+    //[FuncPointer:Args___________]/////////////////////////////
+    /**/      void*   hwnd         //  
+    ,   const char*   lpOperation  //  HINSTANCE == void*
+    ,   const char*   lpFile       //       HWND == void*
+    ,   const char*   lpParameters //     LPCSTR == const char*
+    ,   const char*   lpDirectory  //        INT == int
+    ,          int    nShowCmd     //  
+    //[___________________________]/////////////////////////////
+    );//////////////////////////////////////////////////////////
+struct 
+    ARG_ShellExecuteA{
+    /**/      void*   hwnd         ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpOperation  ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpFile       ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpParameters ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpDirectory  ; //: IDENTICAL_TO_TYPDEF ://
+    /**/       int    nShowCmd     ; //: IDENTICAL_TO_TYPDEF :// 
+    };
+////////////////////////////////////////////////////////////////
+
+    int main( void ){ 
+    printf("[M.C11:BEG:main]\n");
+        
+            
+    //:Load the DLL file containing ShellExecuteA:
+
+    void* lib = LoadLibraryA( "Shell32.dll" );
+    if(NULL==lib){
+        printf("[UnableToLoadDll:Shell32]\n");
+        exit(666);
+    };;
+            
+    //: Get Function Pointer To ShellExecuteA:
+    //:------------------------------------://
+    //: TYPE: PFN_ShellExecuteA
+    //:  VAR: pfn_ShellExecuteA
+    //:------------------------------------://
+
+    PFN_ShellExecuteA
+    pfn_ShellExecuteA=(
+   (PFN_ShellExecuteA)GetProcAddress( lib, 
+       "ShellExecuteA" 
+    ));;
+    if(NULL==pfn_ShellExecuteA){
+        printf("[ShellExecuteA:NULL]");
+    };;
+    
+    //:------------------------------------://
+            
+    //:Create Argument List:
+    const char* lpParameters=(
+        "ARG01"
+        " "
+        "ARG02"
+        " "
+        "ARG03"
+        "\0" //:Extra null terminator to be safe
+    );;
+            
+    //:Function Call:
+
+    //| If the function succeeds, it returns a value         |//
+    //| greater than 32. If the function fails, it           |//
+    //| returns an error value that indicates the cause      |//
+    //| of the failure. The return value is cast as an       |//
+    //| HINSTANCE for backward compatibility with 16-bit     |//
+    //| Windows applications. It is not a true HINSTANCE,    |//
+    //| however. It can be cast only to an int and compared  |//
+    //| to either 32 or the following error codes below.     |//
+    //[ SOURCE: MSDN article on ShellExecuteA                ]//
+    struct ARG_ShellExecuteA  A = { 0 };
+    int res = pfn_ShellExecuteA(
+        ( A.hwnd        = NULL         ) //:No window
+    ,   ( A.lpOperation = "open"       ) //:open/execute
+    ,   ( A.lpFile      = "S.exe"      ) //:Program To Run
+    ,   ( A.lpParameters= lpParameters ) //:Argument List
+    ,   ( A.lpDirectory = NULL         ) //:Use Program's Dir
+    ,   ( A.nShowCmd    = 0            ) //:Not windowed program
+    );;
+
+    if( res <= 32 ){
+        printf("[ShellExecuteA:FAIL]");
+        fflush(stdout);
+        exit(666);
+    };;
+
+    printf("[M.C11:END:main]\n"); 
+    } 
