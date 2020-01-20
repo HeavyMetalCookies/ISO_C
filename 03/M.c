@@ -1,6 +1,6 @@
 
 
-#include "SRC/H"   //:headers/libraries
+#include "SRC/H.H" //:headers/libraries
 #include "SRC/T.1" //:.... types
 #include "SRC/T.2" //:more types
 

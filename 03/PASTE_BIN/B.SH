@@ -7,8 +7,8 @@
 
 ################################################################
 ## B.SH  (B is for BUILD script  )
-## M.C11 (M is for  MAIN program )
-## S.C11 (S is for   SUB program )
+## M.C   (M is for  MAIN program )
+## S.C   (S is for   SUB program )
 ################################################################
 
 gcc -std=c11 -x c   M.c -o   M.exe  ## Main Program

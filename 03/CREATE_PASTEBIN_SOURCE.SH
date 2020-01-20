@@ -12,7 +12,7 @@ main_program_source=$( cat << MAIN_PROGRAM_HEREDOC
 
 //: SECTION: [Headers/Libraries] and types: /////////////////://
 
-$(cat  "SRC/H"  )
+$(cat  "SRC/H.H")
 
 $(cat  "SRC/T.1")
 
