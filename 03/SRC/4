@@ -1,0 +1,19 @@
+    
+
+    //:Launch Sub Program : S.exe
+    pfn_ShellExecuteExW( &info );
+
+    //: The handle must have the SYNCHRONIZE access right. 
+    //: -MSDN: WatiForSingleObject
+    if(NULL == info.hProcess ){
+        printf("[ShellExecuteInfoW:Problems]");
+        fflush(stdout); exit(666);
+    };;
+
+    //:SpinLock
+    pfn_WaitForSingleObject( 
+        info.hProcess 
+    ,   0xFFffFFff /** INFINITE : winbase.h **/
+    );;
+
+    pfn_CloseHandle( info.hProcess );

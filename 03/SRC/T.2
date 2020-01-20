@@ -1,0 +1,20 @@
+
+
+typedef
+    int
+    (*PFN_ShellExecuteExW)(
+        struct DAT_ShellExecuteInfoW *pExecInfo
+    );
+
+typedef
+    unsigned long
+    (*PFN_WaitForSingleObject)(
+        /**/    void* hHandle 
+        ,       unsigned long  dwMilliseconds
+    );
+
+typedef
+    int
+    (*PFN_CloseHandle)(
+        void* hObject
+    );

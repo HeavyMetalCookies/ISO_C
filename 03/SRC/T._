@@ -1,0 +1,23 @@
+
+typedef    /////////////////////////////////////////////////////
+    int  //:<<<<<<<<<<<<<<<<<<<< Func Pointer Return Type  ://
+    (*PFN_ShellExecuteA)( //:<<<<< Func Pointer Name <<<<<<< ://
+    //[FuncPointer:Args___________]/////////////////////////////
+    /**/      void*   hwnd         //  
+    ,   const char*   lpOperation  //  HINSTANCE == void*
+    ,   const char*   lpFile       //       HWND == void*
+    ,   const char*   lpParameters //     LPCSTR == const char*
+    ,   const char*   lpDirectory  //        INT == int
+    ,          int    nShowCmd     //  
+    //[___________________________]/////////////////////////////
+    );//////////////////////////////////////////////////////////
+struct 
+    ARG_ShellExecuteA{
+    /**/      void*   hwnd         ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpOperation  ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpFile       ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpParameters ; //: IDENTICAL_TO_TYPDEF ://
+    /**/const char*   lpDirectory  ; //: IDENTICAL_TO_TYPDEF ://
+    /**/       int    nShowCmd     ; //: IDENTICAL_TO_TYPDEF :// 
+    };
+////////////////////////////////////////////////////////////////

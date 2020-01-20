@@ -1,0 +1,25 @@
+
+
+    //:Load DLL (Dynamic Link Library) Files:
+    void* dll_Shell32  = LoadLibraryA( "shell32.dll"   );
+    void* dll_Kernel32 = LoadLibraryA( "kernel32.dll"  );
+	
+	//:Pull function pointer(s) from DLL(s):
+    ////////////////////////////////////////////////////////////
+    #define T1 PFN_ShellExecuteExW      // ################## //
+    #define T2 PFN_WaitForSingleObject  // ################## //
+    #define T3 PFN_CloseHandle          // ################## //
+
+    T1 pfn_ShellExecuteExW=(T1)(GetProcAddress(dll_Shell32, 
+          "ShellExecuteExW" ));;
+
+    T2 pfn_WaitForSingleObject=(T2)(GetProcAddress(dll_Kernel32, 
+          "WaitForSingleObject" ));;
+
+    T3 pfn_CloseHandle=(T3)(GetProcAddress(dll_Kernel32, 
+          "CloseHandle" ));
+
+    #undef  T1   // ######################################### //
+    #undef  T2   // ######################################### //
+    #undef  T3   // ######################################### //
+    ////////////////////////////////////////////////////////////

@@ -1,0 +1,23 @@
+    
+
+    //:Because we are certain that the sub program is
+    //:finished, we can read the file that sub program
+    //:created without introducing a race condition.
+
+    //:Open File:
+    FILE* file = fopen( "txt.txt", "r" /** r:read **/ );
+    if(NULL==file){
+        printf("[FailedToOpen:txt.txt]\n");
+        fflush(stdout); exit(666);
+    }else{
+        printf("[FileOpened:txt.txt]\n");
+        fflush(stdout);
+    };;
+
+    //:Print contents and close file:
+    char line[64] = { 0 };
+    int  max_len  = 64;
+    while( fgets(line,max_len,file) != NULL ){
+        printf("[LN]:%s\n", line);
+    };;
+    fclose( file );

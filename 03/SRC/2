@@ -1,0 +1,16 @@
+
+
+    //:Check for null function pointers:
+    if( NULL == pfn_ShellExecuteExW     ){ printf("[01]\n"); };
+    if( NULL == pfn_WaitForSingleObject ){ printf("[02]\n"); };
+    if( NULL == pfn_CloseHandle         ){ printf("[03]\n"); };
+
+    //:Create Argument List (Using WIDE strings)
+    const short* lpParameters=(
+        L"ARG01"
+        L" "     //:SPACE_BETWEEN_ARGS!
+        L"ARG02"
+        L" "     //:SPACE_BETWEEN_ARGS!
+        L"ARG03"
+        L"\0" //:Extra null terminator to be safe
+    );;

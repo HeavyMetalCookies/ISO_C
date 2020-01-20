@@ -1,0 +1,24 @@
+
+
+//[ SEE_MASK_NOCLOSEPROCESS (0x00000040) --------------------]//
+//| Makes ShellExecuteExW put process handle into hProcess   |//
+//| so you can detect when launched program terminates.      |//
+
+struct DAT_ShellExecuteInfoW info = { 0 };
+
+info      .cbSize = sizeof( struct DAT_ShellExecuteInfoW );
+info       .fMask = 0x00000040 /** SEE_MASK_NOCLOSEPROCESS **/;
+info      .lpFile = L"S.exe"; //:L for "Wide String"
+info.lpParameters = lpParameters;
+
+//:DONT_NEED_TO_SUPPLY, but here for completeness:
+info      .lpVerb = L"open"; //:Defaults to "open" if not given.
+info        .hwnd =    NULL; //:No parent window.
+info .lpDirectory =    NULL; //:For: working dir != current dir
+info       .nShow =    0   ; //:Not windowed program
+info    .hInstApp =    NULL; //:hInstApp >= 32 if success
+info    .lpIDList =    NULL; //:Identify exe to run via PIDL 
+info     .lpClass =    NULL; //:Misc  String. SEE_MASK_CLASSNAME
+info   .hkeyClass =    NULL; //:Registry Key. SEE_MASK_CLASSKEY
+info    .dwHotKey =    0   ; //:Shortcut Key. SEE_MASK_HOTKEY
+info    .hProcess =    NULL; //:output. SEE_MASK_NOCLOSEPROCESS

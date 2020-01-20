@@ -1,0 +1,25 @@
+
+
+struct DAT_ShellExecuteInfoW { /////////////////////////////////
+    unsigned long     cbSize; //:---------------: U_32 / 8_BYTES
+    unsigned long      fMask; //:---------------: U_32 / 8_BYTES
+             void*      hwnd; //:---------------: VOID
+
+    const unsigned short *         lpVerb; //:--: U_16 / 2_BYTES
+    const unsigned short *         lpFile; //:--: U_16 / 2_BYTES
+    const unsigned short *   lpParameters; //:--: U_16 / 2_BYTES
+    const unsigned short *    lpDirectory; //:--: U_16 / 2_BYTES
+
+    int       nShow;
+    void*  hInstApp;
+    void*  lpIDList;
+                    const unsigned short *   lpClass;
+                    void*                  hkeyClass;  
+                    unsigned long           dwHotKey;
+    union /** anonymous **/ {
+        void*    hIcon; 
+        void* hMonitor;
+    } dummy_union_member_aka_DUMMYUNIONNAME;
+
+    void*    hProcess;
+}; /////////////////////////////////////////////////////////////
